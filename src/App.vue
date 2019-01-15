@@ -8,7 +8,7 @@
 <script>
 import { mapActions } from 'vuex';
 import tasks from './assets/tasks.json';
-import HeaderView from './components/HeaderView.vue';
+import HeaderView from './components/HeaderView';
 
 export default {
   name: 'App',

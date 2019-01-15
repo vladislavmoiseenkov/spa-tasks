@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import Home from '../views/Home.vue';
-import TaskView from '../views/TaskView.vue';
+import Home from '../views/Home';
+import TaskView from '../views/TaskView';
 
 Vue.use(Router);
 

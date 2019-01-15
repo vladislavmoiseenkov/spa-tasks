@@ -61,7 +61,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import TableView from '@/components/TableView.vue';
+import TableView from '@/components/TaskList';
 
 export default {
   name: 'Home',

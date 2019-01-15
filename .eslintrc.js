@@ -13,7 +13,11 @@ module.exports = {
     'no-shadow': ['error', { 'allow': ['state'] }],
     'no-param-reassign': ['error', { 'props': false }],
     "vue/no-use-v-if-with-v-for": ["error", {
-      "allowUsingIterationVar": true
+      "allowUsingIterationVar": true,
+    }],
+    'import/extensions': ['error', 'always', {
+      'js': 'never',
+      'vue': 'never'
     }]
   },
   parserOptions: {
