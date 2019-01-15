@@ -2,8 +2,8 @@ import { shallowMount, createLocalVue, RouterLinkStub } from '@vue/test-utils';
 
 import Vuex from 'vuex';
 
-import Home from '@/views/Home.vue';
-import TableView from '@/components/TableView';
+import Home from '@/views/Home';
+import TaskList from '@/components/TaskList';
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -46,7 +46,7 @@ describe('Home.vue', () => {
         RouterLink: RouterLinkStub,
       },
     });
-    expect(wrapper.contains(TableView)).toBe(true);
+    expect(wrapper.contains(TaskList)).toBe(true);
   });
 
   it('check count', () => {

@@ -18,6 +18,9 @@ module.exports = {
     'import/extensions': ['error', 'always', {
       'js': 'never',
       'vue': 'never'
+    }],
+    "vue/no-parsing-error": ["error", {
+      "invalid-first-character-of-tag-name": false,
     }]
   },
   parserOptions: {

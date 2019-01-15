@@ -3,16 +3,14 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <table-view :header="['Name', 'Tags', 'Actual effort', 'Estimated effort', 'Due date']">
+          <task-list :header="['Name', 'Tags', 'Actual effort', 'Estimated effort', 'Due date']">
             <tbody slot="body">
               <tr
-              v-for="(task, index) in tasks"
-              :key="index"
-              v-if="task.obj_status === 'active'"
+                v-for="(task, index) in tasks"
+                :key="index"
+                v-if="task.obj_status === 'active'"
             >
-              <td
-                :class="{ isHighPriority: task.is_high_priority }"
-              >
+              <td :class="{ isHighPriority: task.is_high_priority }">
                 <router-link
                   class="task-name"
                   :to="{ name: 'task', params: { id: task.id } }"
@@ -26,8 +24,7 @@
                     v-for="(tag, tagIndex) in task.tags"
                     :key="tagIndex"
                   >
-                    <span>{{ tag }}</span>
-                    <span v-if="tagIndex < task.tags.length - 1">, </span>
+                    <span>{{ tag }}{{ tagIndex < task.tags.length - 1 ? ',' : '' }}</span>
                   </span>
                 </div>
                 <div v-else>
@@ -35,24 +32,19 @@
                 </div>
               </td>
               <td>
-                <span v-if="task.actual_effort">{{ task.actual_effort }}</span>
-                <span v-else>---</span>
+                <span>{{ task.actual_effort || '---' }}</span>
               </td>
               <td>
-                <span v-if="task.estimated_effort">{{ task.estimated_effort }}</span>
-                <span v-else>---</span>
+                <span>{{ task.estimated_effort || '---' }}</span>
               </td>
               <td>
-                <span
-                  v-if="task.due_date"
-                >
-                  <!--{{ $moment(task.due_date).format('DD-MM-YYYY HH:mm') }}-->
+                <span>
+                  {{ task.due_date || '---' }}
                 </span>
-                <span v-else>---</span>
               </td>
             </tr>
             </tbody>
-          </table-view>
+          </task-list>
         </div>
       </div>
     </div>
@@ -61,11 +53,11 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import TableView from '@/components/TaskList';
+import TaskList from '../components/TaskList';
 
 export default {
   name: 'Home',
-  components: { TableView },
+  components: { TaskList },
   computed: {
     ...mapGetters({
       tasks: 'tasks/getTasks',

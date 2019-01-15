@@ -5,9 +5,7 @@
         <div class="col-12">
           <div class="jumbotron" v-if="task">
             <div class="display-4">
-              <h1 @click="editName" v-if="!edit">
-                {{ task.name }}
-              </h1>
+              <h1 @click="editName" v-if="!edit">{{ task.name }}</h1>
               <div class="form-group" v-else>
                 <input
                   class="form-control"
@@ -19,18 +17,12 @@
                   class="btn btn-success"
                   type="button"
                   @click="save"
-                >
-                  Save
-                </button>
+                >Save</button>
               </div>
             </div>
-            <p class="lead">
-              {{ task.description }}
-            </p>
+            <p class="lead">{{ task.description }}</p>
             <hr class="my-4">
-            <p>
-              Created: {{ $moment(task.creation_date).format('DD-MM-YYYY HH:mm') }}
-            </p>
+            <p>Created: {{ task.creation_date }}</p>
           </div>
         </div>
       </div>
@@ -56,8 +48,8 @@ export default {
     }),
   },
   mounted() {
-    if (this.tasks) {
-      this.task = this.tasks.find(item => item.id === (+this.$route.params.id));
+    this.task = this.tasks.find(item => item.id === (+this.$route.params.id));
+    if (this.task) {
       this.task = JSON.parse(JSON.stringify(this.task));
     }
   },
